@@ -37,8 +37,8 @@ async def test_usecases_filtered_query_should_return_success():
     """Test querying products with price filtering."""
     try:
         result = await product_usecase.filtered_query(min_price=5000, max_price=8000)
-    except NotFoundException:  # Assuming NoProductsFoundError is raised when no products are found
-        result = []  # Set result to an empty list
+    except NotFoundException:
+        result = []
 
     assert isinstance(result, List)
     assert len(result) >= 0
